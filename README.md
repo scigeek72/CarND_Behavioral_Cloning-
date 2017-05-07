@@ -50,6 +50,9 @@ python drive.py model.json model.h5
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ###Model Architecture and Training Strategy
+Initally, the original nvidia model learned the driving behavior poorly. The car ran only a very short distance before mmoving off the track or getting stuck at a point. At the time, quite naivel, I explored enhancing the model. Inspired by a post from a former Udacity student, I went ahead and made the following changes. Although, it didn't do the trick entirely. I had to downsample the overwhelming presence of 0 steering angle so that the angle distribution is more uniform across the range. This eventually did the trick. 
+
+As far as using `elu` as activation, I refer to the paper *Fast and Accurate Deep Network learning by Exponential Linear Units (ELUs)* by Djork-Arne Clevert, Thomas Unterthiner and Sepp Hochireiter who introduced the ELUs and showed that it made the learning process faster with higher classification accuracies. I incorporated that into my model. 
 
 ####1. An appropriate model arcthiecture has been employed
 
